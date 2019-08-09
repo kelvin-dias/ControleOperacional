@@ -1,0 +1,12 @@
+﻿@model Modelo.Entidades.Servidor
+
+<div class="form-group">
+    @Html.LabelFor(mode => Model.Nome)
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="glyphicon	glyphicon-user"></i>
+        </span>
+        @Html.EditorFor(model => model.Nome, new { htmlAttibutes = new { @class = "form-control", disable = "disable" } })
+    </div>
+</div>

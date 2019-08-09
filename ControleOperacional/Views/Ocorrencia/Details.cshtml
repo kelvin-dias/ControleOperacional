@@ -1,0 +1,76 @@
+﻿@model Modelo.Entidades.Ocorrencia
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ocorrencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero_Ocorrencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero_Ocorrencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Criticidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Criticidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solucao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solucao)
+        </dd>
+
+        @*Chamada da Action no Controlador IteracaoController onde é listado as Iterações das Ocorrencias.*@
+        @Html.Action("ListarIteracoes", "Iteracao",new {Id = Model.OcorrenciaId })
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { Id = Model.OcorrenciaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<p>
+    @*Chamada da para Criação de Iterações*@
+    @*@Html.ActionLink("Criar Iteracao", "GravarIteracao", "Iteracao", "GravarIteracao", new { Id = Model.OcorrenciaId })*@
+    @Html.ActionLink("Criar Iteracao", "GravarIteracao", "Iteracao", new { Id = Model.OcorrenciaId }, null)
+</p>
+

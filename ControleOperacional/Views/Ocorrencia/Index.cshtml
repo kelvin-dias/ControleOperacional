@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Modelo.Entidades.Ocorrencia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Ocorrências</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_Ocorrencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Criticidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solucao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Numero_Ocorrencia.ToString(), "Details", new { id = item.OcorrenciaId })
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DataHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Criticidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solucao)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaId }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.OcorrenciaId })*@
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="panel-footer panel-info">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Criar Ocorrência", "Create",null, new { @class = "btn btn-warning" })
+    </div>
+</div>

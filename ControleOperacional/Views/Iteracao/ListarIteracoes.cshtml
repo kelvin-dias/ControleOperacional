@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Modelo.Tabelas.Iteracao>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TextoIteracao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHoraIteracao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assinatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OcorrenciaId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TextoIteracao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataHoraIteracao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assinatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OcorrenciaId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IteracaoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IteracaoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IteracaoId })
+        </td>
+    </tr>
+}
+
+</table>

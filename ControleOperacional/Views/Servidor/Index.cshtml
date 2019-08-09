@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Modelo.Entidades.Servidor>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listagem de Servidores";
+}
+@if (@TempData["Message"] != null)
+{
+    <div class="alert	alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<div class="panel-body panel-primary">
+    <div class="panel-heading">
+        Relação	de SERVIDORES registrados
+    </div>
+    <div class="panel-body">
+        <table class="table	table-striped	table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ServidorId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ambiente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ServidorIp)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServidorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ambiente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServidorIp)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.ServidorId })	|
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.ServidorId })	|
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ServidorId })
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer	panel-info">
+        @Html.ActionLink("Registrar um novo SERVIDOR", "Create", null, new { @class = "btn	btn-success" })
+    </div>
+</div>
+@section	styles{
+    <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+@section	ScriptPage	{
+    <script src=" @Url.Content("~/scripts/DataTables/jquery.  dataTables.js")"></script>
+    <script src="@Url.Content("~/scripts/DataTables/dataTables.bootstrap.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').dataTable();
+        });
+    </script>
+}
+
+
