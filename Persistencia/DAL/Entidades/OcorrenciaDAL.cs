@@ -26,6 +26,21 @@ namespace Persistencia.DAL.Entidades
             context.SaveChanges();
         }
 
+        public bool ValidarNumeroOcorrencia(long? ocorrencia)
+        {
+            long numero = long.Parse(context.Ocorrencias
+                              .Where(p => p.Numero_Ocorrencia == ocorrencia)
+                              .First().ToString());
+            if (numero == ocorrencia)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+            
+        }
+
 
     }
 }

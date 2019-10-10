@@ -27,7 +27,7 @@ namespace Persistencia.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Controle_Operacional;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Fadami\source\repos\ControleOperacional\ControleOperacional\App_Data\CONTROLE_OPERACIONAL.mdf;Integrated Security=True");
         }
     }
 

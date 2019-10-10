@@ -25,5 +25,10 @@ namespace Servico.Entidades
             ocorrenciaDAL.GravarOcorrencia(ocorrencia);
         }
 
+        public long ValidarNumeroOcorrencia(long? numero)
+        {
+            return ocorrenciaDAL.ValidarNumeroOcorrencia(numero);
+        }
+
     }
 }

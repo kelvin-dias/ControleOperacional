@@ -13,7 +13,6 @@ namespace Modelo.Tabelas
         public string TextoIteracao { get; set; }
         public DateTime DataHoraIteracao { get; set; }
         public string Assinatura { get; set; }
-
         public long? OcorrenciaId { get; set; }
         public Ocorrencia Ocorrencia { get; set; }
     }
